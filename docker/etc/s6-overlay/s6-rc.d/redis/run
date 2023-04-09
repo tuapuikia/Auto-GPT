@@ -1,0 +1,3 @@
+#!/command/with-contenv bash
+
+exec /usr/bin/redis-server --loadmodule /usr/lib/redisearch.so
