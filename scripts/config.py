@@ -44,7 +44,7 @@ class Config(metaclass=Singleton):
         self.smart_token_limit = int(os.getenv("SMART_TOKEN_LIMIT", 8000))
 
         self.openai_api_key = os.getenv("OPENAI_API_KEY")
-        self.temperature = int(os.getenv("TEMPERATURE", "1"))
+        self.temperature = float(os.getenv("TEMPERATURE", "1"))
         self.use_azure = False
         self.use_azure = os.getenv("USE_AZURE") == 'True'
         self.execute_local_commands = os.getenv('EXECUTE_LOCAL_COMMANDS', 'False') == 'True'
@@ -73,7 +73,7 @@ class Config(metaclass=Singleton):
 
         # User agent headers to use when browsing web
         # Some websites might just completely deny request with an error code if no user agent was found.
-        self.user_agent_header = {"User-Agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36"}
+        self.user_agent_header = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36"}
         self.redis_host = os.getenv("REDIS_HOST", "localhost")
         self.redis_port = os.getenv("REDIS_PORT", "6379")
         self.redis_password = os.getenv("REDIS_PASSWORD", "")
