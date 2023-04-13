@@ -1,0 +1,13 @@
+#!/command/with-contenv bash
+
+USER_INPUT=$1
+
+if [ -z "$USER_INPUT" ]; then
+  ARG="--continuous"
+else
+  ARG=$USER_INPUT
+fi
+
+cd /app
+
+python main.py "$ARG"
