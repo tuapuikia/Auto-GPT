@@ -27,10 +27,12 @@ COPY docker/etc /etc/
 COPY docker/bin /usr/bin/
 
 WORKDIR /app
-COPY autogpt/ /app/autogpt
 
 COPY requirements.txt /app
-RUN pip install --no-cache-dir --user -r requirements.txt
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY autogpt/ /app/autogpt
 
 RUN echo "export TERM=screen-256color" >> /root/.bashrc
 
