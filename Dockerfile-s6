@@ -17,7 +17,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 ARG S6_OVERLAY_VERSION=3.1.0.1
 
 # Install redis
-RUN apt update && apt -y install vim redis-server && \
+RUN apt update && apt -y install vim redis-server chromium-driver chromium && \
     rm -rf /var/lib/apt/lists/*
 
 COPY --from=builder /workdir/RediSearch/bin/linux-x64-release/search/redisearch.so /usr/lib/redisearch.so
@@ -27,10 +27,10 @@ COPY docker/etc /etc/
 COPY docker/bin /usr/bin/
 
 WORKDIR /app
-COPY scripts/ /app
+COPY autogpt/ /app/autogpt
 
 COPY requirements.txt /app
-RUN pip install -r requirements.txt
+RUN pip install --no-cache-dir --user -r requirements.txt
 
 RUN echo "export TERM=screen-256color" >> /root/.bashrc
 

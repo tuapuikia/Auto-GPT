@@ -10,4 +10,4 @@ fi
 
 cd /app
 
-python main.py "$ARG"
+python -m autogpt "$ARG"
