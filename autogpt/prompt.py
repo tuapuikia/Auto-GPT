@@ -59,7 +59,11 @@ def get_prompt() -> str:
         ),
         ("List GPT Agents", "list_agents", {}),
         ("Delete GPT Agent", "delete_agent", {"key": "<key>"}),
-        ("Clone Repository", "clone_repository", {"repository_url": "<url>", "clone_path": "<directory>"}),
+        (
+            "Clone Repository",
+            "clone_repository",
+            {"repository_url": "<url>", "clone_path": "<directory>"},
+        ),
         ("Write to file", "write_to_file", {"file": "<file>", "text": "<text>"}),
         ("Read file", "read_file", {"file": "<file>"}),
         ("Append to file", "append_to_file", {"file": "<file>", "text": "<text>"}),
@@ -78,6 +82,9 @@ def get_prompt() -> str:
         ),
         ("Execute Python File", "execute_python_file", {"file": "<file>"}),
         ("Generate Image", "generate_image", {"prompt": "<prompt>"}),
+        ("Convert Audio to text", "read_audio_from_file", {"file": "<file>"}),
+        ("Send Tweet", "send_tweet", {"text": "<text>"}),
+
     ]
 
     # Only add shell command to the prompt if the AI is allowed to execute it
