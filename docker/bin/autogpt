@@ -1,6 +1,14 @@
 #!/command/with-contenv bash
 
+CLEANUP=$(echo $CLEANUP)
 USER_INPUT=$1
+
+if [ "$CLEANUP" == "true" ]; then
+  echo "Deleting files from working directory"
+  rm -rfv /app/auto_gpt_workspace/*
+else
+  echo "Clean up is disabled"
+fi
 
 if [ -z "$USER_INPUT" ]; then
   ARG="--continuous"
