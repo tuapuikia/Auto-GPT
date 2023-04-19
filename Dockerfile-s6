@@ -34,6 +34,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY autogpt/ /app/autogpt
 
+COPY data_ingestion.py /app/
+
 RUN echo "export TERM=screen-256color" >> /root/.bashrc
 
 ADD https://github.com/just-containers/s6-overlay/releases/download/v${S6_OVERLAY_VERSION}/s6-overlay-noarch.tar.xz /tmp
@@ -41,4 +43,4 @@ RUN /bin/tar -C / -Jxpf /tmp/s6-overlay-noarch.tar.xz
 ADD https://github.com/just-containers/s6-overlay/releases/download/v${S6_OVERLAY_VERSION}/s6-overlay-x86_64.tar.xz /tmp
 RUN /bin/tar -C / -Jxpf /tmp/s6-overlay-x86_64.tar.xz
 ENTRYPOINT ["/init"]
-CMD ["bash"]
+CMD ["/bin/bash"]
