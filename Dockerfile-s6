@@ -22,15 +22,15 @@ RUN apt update && apt -y install vim redis-server chromium-driver chromium && \
 
 COPY --from=builder /workdir/RediSearch/bin/linux-x64-release/search/redisearch.so /usr/lib/redisearch.so
 
-COPY docker/etc /etc/
-
-COPY docker/bin /usr/bin/
-
 WORKDIR /app
 
 COPY requirements.txt /app
 
 RUN pip install --no-cache-dir -r requirements.txt
+
+COPY docker/etc /etc/
+
+COPY docker/bin /usr/bin/
 
 COPY autogpt/ /app/autogpt
 
