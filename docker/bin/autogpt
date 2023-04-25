@@ -5,7 +5,7 @@ USER_INPUT=$1
 
 if [ "$CLEANUP" == "true" ]; then
   echo "Deleting files from working directory"
-  rm -rfv /app/auto_gpt_workspace/*
+  rm -rfv /app/autogpt/auto_gpt_workspace/*
 else
   echo "Clean up is disabled"
 fi
