@@ -36,9 +36,9 @@ COPY autogpt/ /app/autogpt
 
 COPY scripts/ /app/scripts
 
-COPY plugins/ /app/plugins
-
 COPY data_ingestion.py /app/
+
+RUN git clone https://github.com/Significant-Gravitas/Auto-GPT-Plugins.git plugins
 
 RUN echo "export TERM=screen-256color" >> /root/.bashrc
 
