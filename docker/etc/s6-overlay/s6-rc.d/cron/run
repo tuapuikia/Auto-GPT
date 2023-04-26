@@ -1,5 +1,7 @@
 #!/command/with-contenv bash
 
+env > /etc/environment
+
 crontab /etc/crontab
 
 exec s6-setuidgid root /usr/sbin/cron -f -L 5
