@@ -40,6 +40,8 @@ COPY data_ingestion.py /app/
 
 RUN git clone https://github.com/Significant-Gravitas/Auto-GPT-Plugins.git plugins
 
+RUN curl -L -o ./plugins/Auto-GPT-Plugins.zip https://github.com/Significant-Gravitas/Auto-GPT-Plugins/archive/refs/heads/master.zip
+
 RUN cd plugins && pip install --no-cache-dir -r requirements.txt
 
 RUN echo "export TERM=screen-256color" >> /root/.bashrc
